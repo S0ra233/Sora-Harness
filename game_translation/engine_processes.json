@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "default_timeout_seconds": 900,
+  "engines": {"godot": 900, "renpy": 900, "wolf": 900}
+}

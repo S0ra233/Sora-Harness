@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "providers": {
+    "compatible": {
+      "label": "自定义／通用兼容",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://gateway.example/v1/chat/completions",
+          "request_rules": {"output_limit_field": "max_completion_tokens", "stream_usage": false}
+        },
+        "responses": {
+          "endpoint_example": "https://gateway.example/v1/responses",
+          "request_rules": {"include_encrypted_reasoning": true}
+        },
+        "anthropic_messages": {
+          "endpoint_example": "https://gateway.example/v1/messages",
+          "request_rules": {}
+        },
+        "gemini": {
+          "endpoint_example": "https://gateway.example/v1beta/models/{model}:generateContent",
+          "request_rules": {}
+        }
+      }
+    },
+    "deepseek": {
+      "label": "DeepSeek",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://api.deepseek.com/chat/completions",
+          "request_rules": {"output_limit_field": "max_tokens", "stream_usage": true}
+        },
+        "responses": {
+          "endpoint_example": "https://api.deepseek.com/responses",
+          "request_rules": {"include_encrypted_reasoning": false}
+        },
+        "anthropic_messages": {
+          "endpoint_example": "https://api.deepseek.com/anthropic/v1/messages",
+          "request_rules": {}
+        }
+      }
+    },
+    "openai": {
+      "label": "OpenAI（GPT）",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://api.openai.com/v1/chat/completions",
+          "request_rules": {"output_limit_field": "max_completion_tokens", "stream_usage": true}
+        },
+        "responses": {
+          "endpoint_example": "https://api.openai.com/v1/responses",
+          "request_rules": {"include_encrypted_reasoning": true}
+        }
+      }
+    },
+    "anthropic": {
+      "label": "Anthropic（Claude）",
+      "protocols": {
+        "anthropic_messages": {
+          "endpoint_example": "https://api.anthropic.com/v1/messages",
+          "request_rules": {}
+        }
+      }
+    },
+    "google": {
+      "label": "Google（Gemini）",
+      "protocols": {
+        "gemini": {
+          "endpoint_example": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+          "request_rules": {}
+        }
+      }
+    },
+    "moonshot": {
+      "label": "Moonshot（Kimi）",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://api.moonshot.cn/v1/chat/completions",
+          "request_rules": {"output_limit_field": "max_tokens", "stream_usage": true}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,712 @@
+{
+  "version": 1,
+  "defaults": {
+    "context_window": 256000,
+    "image_input": null,
+    "reasoning": null
+  },
+  "reasoning_profiles": {
+    "codex_compatible": {
+      "adapter": "openai",
+      "effort_map": {
+        "none": "none",
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "claude_compatible": {
+      "adapter": "anthropic",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "unsupported": {
+      "adapter": "unsupported"
+    },
+    "deepseek": {
+      "adapter": "deepseek",
+      "effort_map": {
+        "none": "none",
+        "minimal": "low",
+        "low": "low",
+        "medium": "high",
+        "high": "high",
+        "xhigh": "high",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "openai_basic": {
+      "adapter": "openai",
+      "effort_map": {
+        "minimal": "minimal",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "high",
+        "max": "high",
+        "ultra": "high"
+      }
+    },
+    "openai_xhigh": {
+      "adapter": "openai",
+      "effort_map": {
+        "none": "none",
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "xhigh",
+        "ultra": "xhigh"
+      }
+    },
+    "openai_max": {
+      "adapter": "openai",
+      "effort_map": {
+        "none": "none",
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "openai_always_thinking": {
+      "adapter": "openai",
+      "default_thinking": true,
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "openai_chat_no_tools": {
+      "adapter": "openai",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      },
+      "tool_efforts": []
+    },
+    "openai_chat_tools_none": {
+      "adapter": "openai",
+      "effort_map": {
+        "none": "none",
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      },
+      "tool_efforts": [
+        "none"
+      ]
+    },
+    "claude_effort": {
+      "adapter": "anthropic",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "high",
+        "max": "high",
+        "ultra": "high"
+      }
+    },
+    "claude_adaptive_max": {
+      "adapter": "anthropic_adaptive",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "max",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "claude_adaptive_xhigh": {
+      "adapter": "anthropic_adaptive",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max",
+        "ultra": "max"
+      }
+    },
+    "gemini_pro_levels": {
+      "adapter": "gemini_level",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "high",
+        "high": "high",
+        "xhigh": "high",
+        "max": "high",
+        "ultra": "high"
+      }
+    },
+    "gemini_flash_levels": {
+      "adapter": "gemini_level",
+      "effort_map": {
+        "minimal": "minimal",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "high",
+        "max": "high",
+        "ultra": "high"
+      }
+    },
+    "gemini_pro_budget": {
+      "adapter": "gemini_budget",
+      "effort_map": {
+        "low": 128,
+        "medium": 4096,
+        "high": 16384,
+        "xhigh": 32768,
+        "max": 32768,
+        "ultra": 32768
+      }
+    },
+    "gemini_flash_budget": {
+      "adapter": "gemini_budget",
+      "effort_map": {
+        "none": 0,
+        "minimal": 512,
+        "low": 1024,
+        "medium": 4096,
+        "high": 16384,
+        "xhigh": 24576,
+        "max": 24576,
+        "ultra": 24576
+      }
+    },
+    "kimi_effort": {
+      "adapter": "openai",
+      "effort_map": {
+        "minimal": "low",
+        "low": "low",
+        "medium": "high",
+        "high": "high",
+        "xhigh": "max",
+        "max": "max",
+        "ultra": "max"
+      }
+    }
+  },
+  "model_rules": [
+    {
+      "id": "compatible-responses-effort",
+      "provider_kind": "compatible",
+      "api_style": "responses",
+      "model_prefixes": ["*"],
+      "reasoning_profile": "codex_compatible"
+    },
+    {
+      "id": "compatible-chat-effort",
+      "provider_kind": "compatible",
+      "api_style": "chat_completions",
+      "model_prefixes": ["*"],
+      "reasoning_profile": "codex_compatible"
+    },
+    {
+      "id": "compatible-messages-effort",
+      "provider_kind": "compatible",
+      "api_style": "anthropic_messages",
+      "model_prefixes": ["*"],
+      "reasoning_profile": "claude_compatible"
+    },
+    {
+      "id": "ds-chat-vision",
+      "provider_kind": "deepseek",
+      "api_style": "chat_completions",
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "deepseek"
+    },
+    {
+      "id": "ds-responses-vision",
+      "provider_kind": "deepseek",
+      "api_style": "responses",
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "codex_compatible"
+    },
+    {
+      "id": "ds-messages-vision",
+      "provider_kind": "deepseek",
+      "api_style": "anthropic_messages",
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "deepseek"
+    },
+    {
+      "id": "ds-chat-pro",
+      "provider_kind": "deepseek",
+      "api_style": "chat_completions",
+      "models": [
+        "deepseek-v4-pro"
+      ],
+      "capabilities": {
+        "image_input": false
+      },
+      "reasoning_profile": "deepseek"
+    },
+    {
+      "id": "ds-responses-pro",
+      "provider_kind": "deepseek",
+      "api_style": "responses",
+      "models": [
+        "deepseek-v4-pro"
+      ],
+      "capabilities": {
+        "image_input": false
+      },
+      "reasoning_profile": "codex_compatible"
+    },
+    {
+      "id": "ds-messages-pro",
+      "provider_kind": "deepseek",
+      "api_style": "anthropic_messages",
+      "models": [
+        "deepseek-v4-pro"
+      ],
+      "capabilities": {
+        "image_input": false
+      },
+      "reasoning_profile": "deepseek"
+    },
+    {
+      "id": "gpt5-basic-chat",
+      "provider_kind": "openai",
+      "api_style": "chat_completions",
+      "models": [
+        "gpt-5",
+        "gpt-5-mini",
+        "gpt-5-nano"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_basic"
+    },
+    {
+      "id": "gpt5-basic-responses",
+      "provider_kind": "openai",
+      "api_style": "responses",
+      "models": [
+        "gpt-5",
+        "gpt-5-mini",
+        "gpt-5-nano"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_basic"
+    },
+    {
+      "id": "gpt5-xhigh-chat",
+      "provider_kind": "openai",
+      "api_style": "chat_completions",
+      "models": [
+        "gpt-5.2",
+        "gpt-5.4",
+        "gpt-5.5"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_xhigh"
+    },
+    {
+      "id": "gpt5-xhigh-responses",
+      "provider_kind": "openai",
+      "api_style": "responses",
+      "models": [
+        "gpt-5.2",
+        "gpt-5.4",
+        "gpt-5.5"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_xhigh"
+    },
+    {
+      "id": "gpt56-chat",
+      "provider_kind": "openai",
+      "api_style": "chat_completions",
+      "models": [
+        "gpt-5.6",
+        "gpt-5.6-sol"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_max"
+    },
+    {
+      "id": "gpt56-responses",
+      "provider_kind": "openai",
+      "api_style": "responses",
+      "models": [
+        "gpt-5.6",
+        "gpt-5.6-sol"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_max"
+    },
+    {
+      "id": "gpt6-responses",
+      "provider_kind": "openai",
+      "api_style": "responses",
+      "models": [
+        "gpt-6.1-sol",
+        "gpt-6-astra"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_always_thinking"
+    },
+    {
+      "id": "gpt6-chat-no-tools",
+      "provider_kind": "openai",
+      "api_style": "chat_completions",
+      "models": [
+        "gpt-6.1-sol",
+        "gpt-6-astra"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_chat_no_tools"
+    },
+    {
+      "id": "gpt6-sol-luna-responses",
+      "provider_kind": "openai",
+      "api_style": "responses",
+      "models": [
+        "gpt-6-sol",
+        "gpt-6-luna"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_max"
+    },
+    {
+      "id": "gpt6-sol-luna-chat",
+      "provider_kind": "openai",
+      "api_style": "chat_completions",
+      "models": [
+        "gpt-6-sol",
+        "gpt-6-luna"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "openai_chat_tools_none"
+    },
+    {
+      "id": "gpt-text-image-standard-chat",
+      "provider_kind": "openai",
+      "api_style": "chat_completions",
+      "models": [
+        "gpt-4o",
+        "gpt-4o-mini",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "unsupported"
+    },
+    {
+      "id": "gpt-text-image-standard-responses",
+      "provider_kind": "openai",
+      "api_style": "responses",
+      "models": [
+        "gpt-4o",
+        "gpt-4o-mini",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "unsupported"
+    },
+    {
+      "id": "claude45-effort",
+      "provider_kind": "anthropic",
+      "api_style": "anthropic_messages",
+      "models": [
+        "claude-opus-4-5",
+        "claude-opus-4-5-20251101"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "claude_effort"
+    },
+    {
+      "id": "claude46-adaptive",
+      "provider_kind": "anthropic",
+      "api_style": "anthropic_messages",
+      "models": [
+        "claude-opus-4-6",
+        "claude-sonnet-4-6"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "claude_adaptive_max"
+    },
+    {
+      "id": "claude-adaptive-extended",
+      "provider_kind": "anthropic",
+      "api_style": "anthropic_messages",
+      "models": [
+        "claude-opus-4-7",
+        "claude-opus-4-8",
+        "claude-opus-5",
+        "claude-opus-5-5",
+        "claude-sonnet-5",
+        "claude-sonnet-5-5",
+        "claude-fable-5",
+        "claude-fable-5-1",
+        "claude-mythos-5",
+        "claude-mythos-5-1"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "claude_adaptive_xhigh"
+    },
+    {
+      "id": "gemini3-pro",
+      "provider_kind": "google",
+      "api_style": "gemini",
+      "models": [
+        "gemini-3-pro-preview"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "gemini_pro_levels"
+    },
+    {
+      "id": "gemini3-flash",
+      "provider_kind": "google",
+      "api_style": "gemini",
+      "models": [
+        "gemini-3-flash-preview"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "gemini_flash_levels"
+    },
+    {
+      "id": "gemini25-pro",
+      "provider_kind": "google",
+      "api_style": "gemini",
+      "models": [
+        "gemini-2.5-pro"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "gemini_pro_budget"
+    },
+    {
+      "id": "gemini25-flash",
+      "provider_kind": "google",
+      "api_style": "gemini",
+      "models": [
+        "gemini-2.5-flash"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "gemini_flash_budget"
+    },
+    {
+      "id": "kimi3-chat",
+      "provider_kind": "moonshot",
+      "api_style": "chat_completions",
+      "models": [
+        "kimi-k3"
+      ],
+      "capabilities": {
+        "image_input": true
+      },
+      "reasoning_profile": "kimi_effort"
+    },
+    {
+      "id": "kimi26-chat",
+      "provider_kind": "moonshot",
+      "api_style": "chat_completions",
+      "models": [
+        "kimi-k2.6",
+        "kimi-k2.7-code",
+        "kimi-k2.7-code-highspeed"
+      ],
+      "capabilities": {
+        "image_input": true
+      }
+    }
+  ],
+  "providers": {
+    "compatible": {
+      "label": "自定义／通用兼容",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://gateway.example/v1/chat/completions",
+          "request_rules": {
+            "output_limit_field": "max_completion_tokens",
+            "stream_usage": false
+          }
+        },
+        "responses": {
+          "endpoint_example": "https://gateway.example/v1/responses",
+          "request_rules": {
+            "include_encrypted_reasoning": true
+          }
+        },
+        "anthropic_messages": {
+          "endpoint_example": "https://gateway.example/v1/messages",
+          "request_rules": {}
+        },
+        "gemini": {
+          "endpoint_example": "https://gateway.example/v1beta/models/{model}:generateContent",
+          "request_rules": {}
+        }
+      }
+    },
+    "deepseek": {
+      "label": "DeepSeek",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://api.deepseek.com/chat/completions",
+          "request_rules": {
+            "output_limit_field": "max_tokens",
+            "stream_usage": true
+          }
+        },
+        "responses": {
+          "endpoint_example": "https://api.deepseek.com/responses",
+          "request_rules": {
+            "include_encrypted_reasoning": false
+          }
+        },
+        "anthropic_messages": {
+          "endpoint_example": "https://api.deepseek.com/anthropic/v1/messages",
+          "request_rules": {}
+        }
+      }
+    },
+    "openai": {
+      "label": "OpenAI（GPT）",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://api.openai.com/v1/chat/completions",
+          "request_rules": {
+            "output_limit_field": "max_completion_tokens",
+            "stream_usage": true
+          }
+        },
+        "responses": {
+          "endpoint_example": "https://api.openai.com/v1/responses",
+          "request_rules": {
+            "include_encrypted_reasoning": true
+          }
+        }
+      }
+    },
+    "anthropic": {
+      "label": "Anthropic（Claude）",
+      "protocols": {
+        "anthropic_messages": {
+          "endpoint_example": "https://api.anthropic.com/v1/messages",
+          "request_rules": {"cache_control": true}
+        }
+      }
+    },
+    "google": {
+      "label": "Google（Gemini）",
+      "protocols": {
+        "gemini": {
+          "endpoint_example": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+          "request_rules": {}
+        }
+      }
+    },
+    "moonshot": {
+      "label": "Moonshot（Kimi）",
+      "protocols": {
+        "chat_completions": {
+          "endpoint_example": "https://api.moonshot.cn/v1/chat/completions",
+          "request_rules": {
+            "output_limit_field": "max_tokens",
+            "stream_usage": true
+          }
+        }
+      }
+    }
+  }
+}

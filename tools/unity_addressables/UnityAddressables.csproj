@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>UnityAddressables</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AssetsTools.NET.Addressables" Version="3.0.2" />
+    <PackageReference Include="AssetsTools.NET" Version="3.0.2" />
+    <PackageReference Include="System.IO.Hashing" Version="9.0.4" />
+  </ItemGroup>
+</Project>

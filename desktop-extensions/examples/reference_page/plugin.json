@@ -1,0 +1,9 @@
+{
+  "api_version": 1,
+  "version": "1.0.0",
+  "id": "reference_page_example",
+  "name": "资料页示例",
+  "description": "演示插件辅助页与主聊天分离；不会发送模型请求。",
+  "default_enabled": false,
+  "ui_entry": "ui.py:create_ui"
+}

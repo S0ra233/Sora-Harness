@@ -1,0 +1,5 @@
+/artifacts/
+/.build-env/
+/toolchain/
+/cache/
+/current-build.txt

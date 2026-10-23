@@ -1,0 +1,11 @@
+{
+  "api_version": 2,
+  "version": "1.1.0",
+  "requires_host_api": 2,
+  "id": "rag",
+  "name": "资料库",
+  "description": "按项目与会话选择资料，关键词、语义及混合检索；资料按需返回主聊天。",
+  "default_enabled": true,
+  "tools_entry": "tools.py:create_tools",
+  "ui_entry": "ui.py:create_ui"
+}
